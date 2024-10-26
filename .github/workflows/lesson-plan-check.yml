@@ -39,6 +39,6 @@ jobs:
       - name: Run lesson plan checker
         run: npx ts-node src/cron/emailReminders.ts
 
-      # Step 6: Clean up resources (optional)
-      - name: Prisma disconnect
-        run: npx prisma db disconnect
+      # # Step 6: Clean up resources (optional)
+      # - name: Prisma disconnect
+      #   run: npx prisma db disconnect
