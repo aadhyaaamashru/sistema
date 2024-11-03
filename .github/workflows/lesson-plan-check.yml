@@ -13,9 +13,9 @@ on:
 jobs:
   check-lesson-plans:
     runs-on: ubuntu-latest
-    # env:
-    #   VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
-    #   VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
+    env:
+      VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
+      VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
 
     steps:
       # Step 1: Checkout the code from your repository
