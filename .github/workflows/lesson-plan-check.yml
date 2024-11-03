@@ -13,6 +13,9 @@ on:
 jobs:
   check-lesson-plans:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
+      VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
 
     steps:
       # Step 1: Checkout the code from your repository
@@ -37,7 +40,7 @@ jobs:
 
       # Step 5: Run your script that checks lesson plans
       - name: Run lesson plan checker
-        run: npx ts-node src/cron/emailReminders.ts
+        run: npx ts-node src/cron/emailReminders.ts  
 
       # # Step 6: Clean up resources (optional)
       # - name: Prisma disconnect
