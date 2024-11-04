@@ -56,7 +56,7 @@ const reminderEmailSend = async (
   } catch (error: any) {
     console.error(
       `Error sending email to Teacher ID: ${teacherId}, Email: ${teacherEmail}:`,
-      error.message
+      error
     );
   }
 };
