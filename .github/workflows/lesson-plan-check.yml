@@ -12,6 +12,13 @@ on:
 jobs:
   check-lesson-plans:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
+      VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
+      EMAIL_SERVICE: ${{ secrets.EMAIL_SERVICE}}
+      EMAIL_USER: ${{ secrets.EMAIL_USER}}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS}}
+      API_URL: ${{ secrets.API_URL}}
 
     steps:
       - name: Create env File 
