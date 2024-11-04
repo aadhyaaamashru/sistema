@@ -6,7 +6,6 @@ on:
     # This runs at 11:45 PM UTC on October 25
     - cron: '45 23 25 10 *'
 
-
   # Also allow manual triggering of the workflow via the GitHub interface
   workflow_dispatch:
 
@@ -16,6 +15,9 @@ jobs:
     env:
       VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
       VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
+      EMAIL_SERVICE: ${{ secrets.EMAIL_SERVICE}}
+      EMAIL_USER: ${{ secrets.EMAIL_USER}}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS}}
 
     steps:
       # Step 1: Checkout the code from your repository
@@ -40,7 +42,7 @@ jobs:
 
       # Step 5: Run your script that checks lesson plans
       - name: Run lesson plan checker
-        run: npx ts-node src/cron/emailReminders.ts  
+        run: npx ts-node src/cron/emailReminders.ts
 
       # # Step 6: Clean up resources (optional)
       # - name: Prisma disconnect
