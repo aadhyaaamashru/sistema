@@ -53,10 +53,11 @@ const reminderEmailSend = async (
     const data = await response.json();
     console.log(data.message); // Log success message
   } catch (error: any) {
-    console.error(
-      `Error sending email to Teacher ID: ${teacherId}, Email: ${teacherEmail}:`,
-      error.message
-    );
+    // console.error(
+    //   `Error sending email to Teacher ID: ${teacherId}, Email: ${teacherEmail}:`,
+    //   error.message
+    // );
+    console.error(`Error sending email:`, error);
   }
 };
 
