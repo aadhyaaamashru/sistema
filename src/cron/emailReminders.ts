@@ -40,6 +40,9 @@ const reminderEmailSend = async (
         // to:teacherEmail,
         subject: subject,
         text: text,
+        emailUser: process.env.EMAIL_USER,
+        emailPass: process.env.EMAIL_PASS,
+        emailService: process.env.EMAIL_SERVICE,
       }),
     });
 

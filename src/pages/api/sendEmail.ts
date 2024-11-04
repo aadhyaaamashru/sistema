@@ -11,26 +11,26 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { to, subject, text } = req.body;
+  const { to, subject, text, emailUser, emailPass, emailService } = req.body;
 
   // Validate the input
-  if (!to || !subject || !text) {
+  if (!to || !subject || !text || !emailUser || !emailPass || !emailService) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
   // Create a transporter object
   try {
     const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE,
+      service: emailService,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // app password
+        user: emailUser,
+        pass: emailPass, // app password
       },
     });
 
     // Configure the mailOptions object
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: emailUser,
       to: to,
       subject: subject,
       text: text,
