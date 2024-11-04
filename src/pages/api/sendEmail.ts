@@ -14,8 +14,18 @@ export default async function handler(
   const { to, subject, text, emailUser, emailPass, emailService } = req.body;
 
   // Validate the input
-  if (!to || !subject || !text || !emailUser || !emailPass || !emailService) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  if (
+    !to ||
+    !subject ||
+    !text ||
+    !emailUser ||
+    !emailPass ||
+    !emailService ||
+    true
+  ) {
+    return res
+      .status(400)
+      .json({ error: 'Missing required fields ' + emailService + ' end' });
   }
 
   // Create a transporter object

@@ -50,7 +50,7 @@ const reminderEmailSend = async (
       const errorData = await response.json();
       console.log('Reached check');
       throw new Error(
-        errorData.details + 'Reached Checkpt' || 'Failed to send email'
+        JSON.stringify(errorData) + 'Reached Checkpt' || 'Failed to send email'
       );
     }
 
