@@ -12,15 +12,18 @@ on:
 jobs:
   check-lesson-plans:
     runs-on: ubuntu-latest
-    env:
-      VERCEL_POSTGRES_URL_NON_POOLING: ${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }}
-      VERCEL_POSTGRES_PRISMA_URL: ${{ secrets.VERCEL_POSTGRES_PRISMA_URL }}
-      EMAIL_SERVICE: ${{ secrets.EMAIL_SERVICE}}
-      EMAIL_USER: ${{ secrets.EMAIL_USER}}
-      EMAIL_PASS: ${{ secrets.EMAIL_PASS}}
-      API_URL: ${{ secrets.API_URL}}
 
     steps:
+      - name: Create env File 
+        run: | 
+        touch .env 
+        echo VERCEL_POSTGRES_URL_NON_POOLING=${{ secrets.VERCEL_POSTGRES_URL_NON_POOLING }} >> .env
+        echo VERCEL_POSTGRES_PRISMA_URL=${{ secrets.VERCEL_POSTGRES_PRISMA_URL }} >> .env
+        echo EMAIL_SERVICE=${{ secrets.EMAIL_SERVICE}} >> .env
+        echo EMAIL_USER=${{ secrets.EMAIL_USER}} >> .env
+        echo EMAIL_PASS=${{ secrets.EMAIL_PASS}} >> .env
+        echo API_URL=${{ secrets.API_URL}} >> .env
+
       # Step 1: Checkout the code from your repository
       - name: Checkout code
         uses: actions/checkout@v3
