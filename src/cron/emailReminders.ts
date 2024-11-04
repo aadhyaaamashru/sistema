@@ -113,15 +113,17 @@ const checkLessonPlanUpdates = async () => {
         const daysUntilLesson = getDifferenceInDays(absence.lessonDate, today);
 
         // If any absence has a lesson in 2 or 7 days, send an email
-        if (daysUntilLesson === 2 || daysUntilLesson === 7) {
-          await reminderEmailSend(
-            teacher.id,
-            teacher.name,
-            teacher.email,
-            daysUntilLesson
-          );
-        }
+        // if (daysUntilLesson === 2 || daysUntilLesson === 7) {
+        await reminderEmailSend(
+          teacher.id,
+          teacher.name,
+          teacher.email,
+          daysUntilLesson
+        );
+        // }
+        break;
       }
+      break;
     }
   } catch (error) {
     console.error('Error checking lesson plan updates:', error);
