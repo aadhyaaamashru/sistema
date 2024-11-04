@@ -29,7 +29,7 @@ const reminderEmailSend = async (
   const text = `Dear ${teacherName},\n\nThis is a reminder that you have a lesson scheduled in ${daysUntilLesson} days. Please ensure your lesson plan is submitted.\n\nThank you!`;
 
   try {
-    const response = await fetch('http://localhost:3000/api/sendEmail', {
+    const response = await fetch('http://127.0.0.1:3000/api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
